@@ -1,0 +1,87 @@
+body {
+    background: rgb(12, 192, 174);
+    height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    transition: transform .5s;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:hover {
+    transform: scale(1.2);
+    transition: all 0.5s;
+}
+
+.stars {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    box-shadow: 50px 30px white,
+        50px 103vh white,
+        200px 68vh white,
+        400px 106vh white,
+        600px 81vh white,
+        800px 107vh white,
+        1000px 61vh white,
+        1200px 104vh white,
+        1400px 99vh white,
+        82px 40vh white,
+        174px 35vh white,
+        391px 22vh white,
+        553px 17vh white,
+        749px 28vh white,
+        899px 39vh white,
+        1154px 47vh white,
+        1326px 54vh white;
+    animation: anim-stars 10s linear infinite;
+    position: relative;
+    width: 3px;
+    height: 3px;
+}
+
+.stars::after {
+    content: " ";
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    box-shadow: 50px 30px white,
+        50px 103vh white,
+        200px 68vh white,
+        400px 106vh white,
+        600px 81vh white,
+        800px 107vh white,
+        1000px 61vh white,
+        1200px 104vh white,
+        1400px 99vh white,
+        82px 40vh white,
+        174px 35vh white,
+        391px 22vh white,
+        553px 17vh white,
+        749px 28vh white,
+        899px 39vh white,
+        1154px 47vh white,
+        1326px 54vh white;
+    content: " ";
+    position: absolute;
+    top: 99.5vh;
+    width: 3px;
+}
+
+@keyframes anim-stars {
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(-99vh);
+    }
+}
+
+select:invalid {
+    color: gray;
+}
