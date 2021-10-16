@@ -57,7 +57,7 @@ docker-compose up -d
 <p> 5° - Agora vamos pegar o endereço IP para colocar no projeto! Primeiramente abrir o CMD do windows, digitar ipconfig, copiar o IP que está na linha "Endereço IPV4", abrir o arquivo .env localizado no caminho www\html\.env e substituir o IP que está na linha escrita "DB_HOST=" por o IP da sua máquina. Segue exemplo: </p>
 <img alt="Imagem de como configurar IP" src=./www/html/github/ip_maquina.png width="80%;">
 
-<p> 6° - Abrir um SGBD MySQL (recomendo o Workbench) e criar e abrir uma conexão com os seguintes parâmetros (todos estão no arquivo .env): </p>
+<p> 6° - Abrir um SGBD MySQL (recomendo o Workbench), criar e iniciar uma conexão com os seguintes parâmetros (todos estão no arquivo .env): </p>
 
 <p> Connection Name: gazintech </p>
 <p> Hostname: 127.0.0.1 </p>
