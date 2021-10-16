@@ -37,9 +37,10 @@
 <p> 👉 SGBD de sua preferência (recomendo Workbench)</p>
 <p> 👉 Visual Studio Code</p>
 <p> 👉 Git 2.33.1</p>
+<p> 👉 Docker 4.1.1 </p>
 
 <h1 aligtn="center" id="instalandoAplicacao"> Instalando Aplicação </h1>
-<p> 1° - Abrir o terminal (recomendo o GIT BASH) e selecionar o local para rodar o projeto através do comando CD (recomendo desktop); </p>
+<p> 1° - Abrir o terminal (recomendo o GIT BASH) e selecionar o local para rodar o projeto através do comando cd (recomendo desktop); </p>
 <p> 2° - Digitar o comando abaixo no terminal (será criado uma pasta chamada GazinTech no diretório selecionado com todo o projeto): </p>
 
 ~~~
@@ -47,7 +48,7 @@ git clone https://github.com/Vinicius-dcs/GazinTech.git
 ~~~
 
 <p> 3° - Abrir a pasta GazinTech clonada através do git hub dentro do Visual Studio Code; </p>
-<p> 4° - Abrir o terminal do próprio Visual Studio Code e digitar o comando abaixo (provavelmente irá demorar um pouco até finalizar a execução desse comando, pois nesse momento o docker irá buildar as imagens do PHP e MySQL): </p>
+<p> 4° - Iniciar o docker desktop, abrir o terminal do próprio Visual Studio Code e digitar o comando abaixo (provavelmente irá demorar um pouco até finalizar a execução desse comando, pois nesse momento o docker irá buildar as imagens do PHP e MySQL): </p>
 
 ~~~
 docker-compose up -d
@@ -64,13 +65,13 @@ docker-compose up -d
 <p> Username: root </p>
 <p> Password: 1234 </p>
 
-<p> 7° - Abrir o terminal do VS Code, entrar na pasta html do projeto pelo comando cd do terminal e após isso, digitar o seguite comando no terminal (será criado as tabelas no banco): </p>
+<p> 7° - Abrir o terminal do VS Code, entrar na pasta html (é de extrema importância acessar o caminho GazinTech\www\html e executar o comando dentro dessa pasta, caso contrário o comando dará erro) do projeto pelo comando cd do terminal e após isso, digitar o seguite comando no terminal (será criado as tabelas no banco): </p>
 
 ~~~
 php artisan migrate
 ~~~
 
-<p> 8° - Pronto! Agora é basta acessar o projeto através da url http://localhost:8000/public/index.php/crud. Lembrando que dependendo do tipo da sua conexão o hostname pode variar e também é necessário utilizar a porta 8000 para que o projeto rode corretamente no docker. </p>
+<p> 8° - Pronto! Agora é basta acessar o projeto através da url http://localhost:8000/public/index.php/crud. Lembrando que dependendo da sua conexão, o hostname pode variar e também é necessário utilizar a porta 8000 para que o projeto rode corretamente no docker. </p>
 
 <h1 aligtn="center" id="utilizandoAplicacao"> Utilizando Aplicação </h1>
 <p> Apresentação das funções do CRUD </p>
