@@ -4,7 +4,7 @@ $baseURL = $_SERVER['REMOTE_ADDR'];
 
 include('header.php');
 
-$url = 'http://'. $baseURL . ':8000/public/index.php/desenvolvedores/get';
+$url = 'http://' . $baseURL . ':8000/public/index.php/desenvolvedores/get';
 
 $response = file_get_contents($url);
 $response = json_decode($response, 1);
@@ -38,31 +38,31 @@ $response = json_decode($response, 1);
             </thead>
 
             <tbody>
-                <?php 
-                    if(!empty($response)): 
+                <?php
+                if (!empty($response)) :
                     foreach ($response as $retorno) :
                 ?>
-                    <tr>
-                        <th scope="row"><?php echo $retorno['id']; ?></th>
-                        <td><?php echo $retorno['nome']; ?></td>
+                        <tr>
+                            <th scope="row"><?php echo $retorno['id']; ?></th>
+                            <td><?php echo $retorno['nome']; ?></td>
 
-                        <td>
-                            <?php
-                            if ($retorno['sexo'] === "M") {
-                                echo "Masculino";
-                            } else if ($retorno['sexo'] === "F") {
-                                echo "Feminino";
-                            }
-                            ?>
-                        </td>
+                            <td>
+                                <?php
+                                if ($retorno['sexo'] === "M") {
+                                    echo "Masculino";
+                                } else if ($retorno['sexo'] === "F") {
+                                    echo "Feminino";
+                                }
+                                ?>
+                            </td>
 
-                        <td><?php echo $retorno['idade']; ?></td>
-                        <td><?php echo $retorno['hobby']; ?></td>
-                        <td><?php echo date('d-m-Y', strtotime($retorno['dataNascimento'])); ?></td>
+                            <td><?php echo $retorno['idade']; ?></td>
+                            <td><?php echo $retorno['hobby']; ?></td>
+                            <td><?php echo date('d-m-Y', strtotime($retorno['dataNascimento'])); ?></td>
 
-                        <td>
-                            <!-- Button trigger modal ALTERAR -->
-                            <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalAlterar" onclick="setIinfosDesenvolvedor(
+                            <td>
+                                <!-- Button trigger modal ALTERAR -->
+                                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalAlterar" onclick="setIinfosDesenvolvedor(
                                                                                             <?php echo $retorno['id']; ?>,
                                                                                             '<?php echo $retorno['nome']; ?>',
                                                                                             '<?php echo $retorno['sexo']; ?>',
@@ -70,18 +70,18 @@ $response = json_decode($response, 1);
                                                                                             '<?php echo $retorno['hobby']; ?>',
                                                                                             '<?php echo $retorno['dataNascimento']; ?>'
                                                                                          )">
-                                Alterar
-                            </button>
+                                    Alterar
+                                </button>
 
-                            <!-- Button trigger modal EXCLUIR -->
-                            <button type="button" id="btn-modal-excluir" class="btn btn-danger btn-sm" data-bs-toggle="modal" href="#modalExcluir" onclick="setIdExcluir(<?php echo $retorno['id']; ?>);">
-                                Excluir
-                            </button>
-                        </td>
-                    </tr>
-                <?php 
-                    endforeach; 
-                    endif;
+                                <!-- Button trigger modal EXCLUIR -->
+                                <button type="button" id="btn-modal-excluir" class="btn btn-danger btn-sm" data-bs-toggle="modal" href="#modalExcluir" onclick="setIdExcluir(<?php echo $retorno['id']; ?>);">
+                                    Excluir
+                                </button>
+                            </td>
+                        </tr>
+                <?php
+                    endforeach;
+                endif;
                 ?>
             </tbody>
 
@@ -101,7 +101,7 @@ $response = json_decode($response, 1);
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="excluir('http://<?php echo $baseURL ?>/resources/views/listar.php');">Confirmar Exclusão
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="excluir('../../resources/views/listar.php');">Confirmar Exclusão
                     </button>
                 </div>
             </div>
@@ -152,7 +152,7 @@ $response = json_decode($response, 1);
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-warning" onclick="put('http://<?php echo $baseURL ?>/resources/views/listar.php');" data-bs-dismiss="modal">Confirmar Alteração</button>
+                    <button type="button" class="btn btn-warning" onclick="put('../../resources/views/listar.php');" data-bs-dismiss="modal">Confirmar Alteração</button>
                 </div>
             </div>
         </div>

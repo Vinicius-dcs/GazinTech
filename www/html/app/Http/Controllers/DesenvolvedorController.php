@@ -16,16 +16,15 @@ class DesenvolvedorController extends Controller
     }
 
     public function get($desenvolvedor)
-    {        
+    {
         try {
             if ($this->desenvolvedor->find($desenvolvedor)) {
-                return response($this->desenvolvedor->find($desenvolvedor), 200); //OK
+                return response($this->desenvolvedor->find($desenvolvedor), 200);
             } else {
-                return response()->json(['data' => ['message' => 'Nenhum desenvolvedor encontrado!']], 404); //OK
+                return response()->json(['data' => ['message' => 'Nenhum desenvolvedor encontrado!']], 404);
             }
         } catch (Exception $e) {
-            print_r($e->getMessage());
-            return response('', 404);
+            return response()->json(['data' => ['message' => 'Erro: ' .  $e->getMessage()]], 404);
         }
     }
 
@@ -34,7 +33,7 @@ class DesenvolvedorController extends Controller
         try {
             return response($this->desenvolvedor->all(), 200);
         } catch (Exception $e) {
-            return print_r($e->getMessage());
+            return response()->json(['data' => ['message' => 'Erro: ' .  $e->getMessage()]]);
         }
     }
 
@@ -42,10 +41,9 @@ class DesenvolvedorController extends Controller
     {
         try {
             $this->desenvolvedor->create($request->all());
-            return response()->json(['data' => ['message' => 'Desenvolvedor cadastrado!']], 201); //OK
+            return response()->json(['data' => ['message' => 'Desenvolvedor cadastrado!']], 201);
         } catch (Exception $e) {
-            print_r($e->getMessage());
-            return response()->json(['data' => ['message' => 'Erro ao cadastrar desenvolvedor!']], 400); //OK
+            return response()->json(['data' => ['message' => 'Erro ao cadastrar desenvolvedor(a): ' . $e->getMessage()]], 400);
         }
     }
 
@@ -60,29 +58,27 @@ class DesenvolvedorController extends Controller
                 $desenvolvedor->dataNascimento = $request->input('dataNascimento');
                 $desenvolvedor->save();
 
-                return response()->json(['data' => ['message' => 'Desenvolvedor alterado!']], 200); //OK
+                return response()->json(['data' => ['message' => 'Desenvolvedor alterado!']], 200);
             } else {
-                return response()->json(['data' => ['message' => 'Desenvolvedor não encontrado!']], 400); //OK
+                return response()->json(['data' => ['message' => 'Desenvolvedor não encontrado!']], 400);
             }
         } catch (Exception $e) {
-            print_r($e->getMessage());
-            return response('', 400);
+            return response()->json(['data' => ['message' => 'Erro: ' . $e->getMessage()]], 400);
         }
     }
 
     public function delete($desenvolvedor)
     {
-        try{
+        try {
             $desenvolvedor = $this->desenvolvedor->find($desenvolvedor);
-            if(!is_null($desenvolvedor)) {
-                $desenvolvedor->delete(); 
-                return response('', 204); //OK
+            if (!is_null($desenvolvedor)) {
+                $desenvolvedor->delete();
+                return response(['data' => ['message' => 'Desenvolvedor excluído!']], 204);
             } else {
-                return response()->json(['data' => ['message' => 'Desenvolvedor não encontrado, portanto não pode ser excluído!']], 400); //OK
+                return response()->json(['data' => ['message' => 'Desenvolvedor não encontrado, portanto não pode ser excluído!']], 400);
             }
         } catch (Exception $e) {
-            print_r($e->getMessage());
-            return response('', 400);
+            return response()->json(['data' => ['message' => 'Erro: ' . $e->getMessage()]], 400);
         }
     }
 }

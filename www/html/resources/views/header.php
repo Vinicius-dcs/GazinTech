@@ -15,11 +15,11 @@
         <div class="stars"></div>
         <div class="container mt-5 border border-2 rounded-1">
             <div class="row mt-3 mb-3">
-                <a href="javascript::" onclick="carregarPaginaRefresh('../../resources/views/index.php');" class="col text-center fs-5 text-white">Início</a>
+                <a href="javascript:" onclick="carregarPaginaRefresh('../../resources/views/index.php')" class="col text-center fs-5 text-white">Início</a>
 
-                <a href="javascript::" onclick="carregarPaginaRefresh('../../resources/views/cadastro.php');" class="col text-center fs-5 text-white">Cadastrar</a>
+                <a href="javascript:" onclick="carregarPaginaRefresh('../../resources/views/cadastro.php')" class="col text-center fs-5 text-white">Cadastrar</a>
 
-                <a href="javascript::" onclick="carregarPaginaRefresh('../../resources/views/listar.php');" class="col text-center fs-5 text-white">Listar/Alterar</a>
+                <a href="javascript:" onclick="carregarPaginaRefresh('../../resources/views/listar.php')" class="col text-center fs-5 text-white">Listar/Alterar</a>
             </div>
         </div>
 
